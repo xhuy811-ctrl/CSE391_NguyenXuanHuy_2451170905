@@ -121,3 +121,129 @@ Lỗi 10: Dòng 40 — Sử dụng thẻ `<main>` lần thứ hai (Thẻ `<main>
 Lỗi 11: Dòng 44 — Thẻ `<footer>` chưa được đóng — Cách sửa: Thêm thẻ `</footer>` vào cuối đoạn nội dung chân trang.
 
 Lỗi 12: Dòng 19 - Thẻ `<h3>` Nhảy bậc tiêu đề từ h1 xuống h3 đổi thành `<h2>`
+
+## Câu B4:
+1. Với trang shopee.vn:  
+* 3 thẻ semantic HTML5 được sử dụng:
+- Thẻ `<html>` Nằm ngay dòng đầu tiên (thẻ gốc có thuộc tính dir="ltr" lang="vi").
+- Thẻ `<head>` Nằm ngay bên dưới thẻ `<html>`(chứa các thông tin metadata của như tiêu đề, bảng mã, liên kết CSS).
+- Thẻ `<body>` Nằm dưới thẻ `<head>`(thẻ ngữ nghĩa bao bọc toàn bộ nội dung hiển thị của trang web mà người dùng nhìn thấy).
+* 2 thẻ mà trang đó KHÔNG dùng đúng semantic:
+- Thẻ `<div id="main">` Nên dùng thẻ `<main>` thay vì `<div id="main">` vì đây là nội dung chính của trang.
+- Thẻ `<div id="modal">` - Nên dùng thẻ `<dialog>` thay vì `<div id="modal">` vì đây là hộp thoại/modal.
+2. Trong tab Elements shopee không có `<table>` nào.
+3. `<form>` trên trang 
+- From đó có Action: /search và Method: get  
+- Input text và Input button được sử dụng
+
+# PHẦN C — SUY LUẬN
+
+## Câu C1:
+```html
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Chi Tiết Sản Phẩm</title>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Trang chủ</a></li>
+                <li><a href="#">Khuyến mãi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <nav aria-label="breadcrumb">
+            <ol> <li><a href="/">Trang chủ</a></li>
+                <li><a href="/dien-thoai">Điện thoại</a></li>
+                <li>iPhone 16</li>
+            </ol>
+        </nav>
+
+        <article class="product-detail">
+            
+            <section class="product-visuals">
+                <h2>Hình ảnh sản phẩm</h2>
+                <figure> <img src="main-product.jpg" alt="iPhone 16 mặt trước">
+                    <div class="thumbnail-list">
+                        <img src="thumb1.jpg" alt="Góc nghiêng">
+                        <img src="thumb2.jpg" alt="Mặt lưng">
+                        <img src="thumb3.jpg" alt="Cổng sạc">
+                        <img src="thumb4.jpg" alt="Hộp máy">
+                        <img src="thumb5.jpg" alt="Màu sắc">
+                    </div>
+                </figure>
+            </section>
+
+            <section class="product-info">
+                <h1>Tên sản phẩm (iPhone 16)</h1> <div class="rating">
+                    <span>5 sao</span> </div>
+                <p class="price"><strong>22.000.000đ</strong></p> <p class="description">Mô tả ngắn gọn về sản phẩm.</p>
+            </section>
+
+            <section class="specifications">
+                <h2>Thông số kỹ thuật</h2>
+                <table> <thead>
+                        <tr>
+                            <th colspan="2">Cấu hình chi tiết</th> </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Màn hình</td>
+                            <td>6.1 inch</td>
+                        </tr>
+                        <tr>
+                            <td>Chipset</td>
+                            <td>A18 Bionic</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="reviews">
+                <h2>Đánh giá từ khách hàng</h2>
+                <article class="user-comment">
+                    <footer>Đăng bởi: Nguyễn Xuân Huy</footer> <p>Sản phẩm rất tốt!</p>
+                </article>
+            </section>
+        </article>
+
+        <aside class="related-products">
+            <h2>Sản phẩm tương tự</h2>
+            <ul>
+                <li><a href="#">iPhone 15 Pro</a></li>
+                <li><a href="#">Samsung S24</a></li>
+            </ul>
+        </aside>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Shop TLU. All rights reserved.</p>
+        <address> Liên hệ: <a href="mailto:contact@tlu.edu.vn">contact@tlu.edu.vn</a>
+        </address>
+    </footer>
+
+</body>
+</html>
+```
+
+## Câu C2:
+Quan điểm “dùng `<div>` cho mọi thứ rồi thêm class là đủ” nghe có vẻ tiện, nhưng về lâu dài lại gây nhiều bất lợi.
+
+Thứ nhất là SEO (tối ưu công cụ tìm kiếm). Các thẻ semantic như `<header>`, `<nav>`, `<main>`, `<article>`, `<section> `giúp công cụ tìm kiếm hiểu rõ cấu trúc và nội dung trang. Nếu tất cả đều là `<div>`, bot phải “đoán” ý nghĩa, dẫn đến việc index kém chính xác hơn. Một trang có cấu trúc rõ ràng thường được đánh giá cao hơn về mức độ liên quan và chất lượng nội dung.
+
+Thứ hai là Accessibility (khả năng truy cập). Người dùng sử dụng screen reader (trình đọc màn hình) phụ thuộc vào các thẻ semantic để điều hướng. Ví dụ, họ có thể nhảy nhanh tới `<nav>` hoặc `<main>`. Nếu chỉ dùng `<div>`, trải nghiệm này gần như bị mất, khiến website khó dùng với người khiếm thị.
+
+Ví dụ: khi bạn dùng `<nav aria-label="breadcrumb">` kết hợp `<ol>` cho breadcrumb, screen reader sẽ thông báo đây là “navigation” và danh sách có thứ tự, giúp người dùng hiểu ngay họ đang ở đâu trong hệ thống. Nếu chỉ dùng` <div>` + CSS, thông tin này không được truyền tải.
+
+Tuy vậy, `<div>` vẫn rất cần thiết. Nó phù hợp khi bạn chỉ cần group các phần tử để styling hoặc layout, ví dụ chia grid, flexbox, hoặc bọc nhiều thành phần không mang ý nghĩa nội dung cụ thể.
+
+link videos trong google drive:
