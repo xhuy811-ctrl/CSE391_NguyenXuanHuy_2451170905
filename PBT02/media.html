@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu Sản phẩm Multimedia</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; max-width: 1000px; margin: auto; }
+        img, video, iframe { max-width: 100%; height: auto; display: block; margin-bottom: 10px; border-radius: 8px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        figure { margin: 0; border: 1px solid #ddd; padding: 10px; text-align: center; }
+        figcaption { font-style: italic; color: #555; margin-top: 5px; }
+        section { margin-bottom: 40px; }
+        svg { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <!-- SVG Inline: Logo đơn giản hình tròn và hình vuông -->
+        <svg width="100" height="50" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg">
+            <rect x="5" y="5" width="40" height="40" fill="#007bff" />
+            <circle cx="75" cy="25" r="20" fill="#ff5722" />
+        </svg>
+        <h1>SmartTech - Thế giới Công nghệ</h1>
+    </header>
+
+    <!-- 1. Danh sách sản phẩm dùng figure + figcaption -->
+    <section>
+        <h2>Sản phẩm nổi bật</h2>
+        <div class="product-grid">
+            <figure>
+                <img src="https://picsum.photos/id/160/400/300" 
+                     alt="Điện thoại iPhone 16 màu Titan Đen mặt trước" 
+                     loading="lazy">
+                <figcaption>iPhone 16 Pro - Đỉnh cao công nghệ</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://picsum.photos/id/1/400/300" 
+                     alt="Laptop MacBook M3 màu Silver mỏng nhẹ" 
+                     loading="lazy">
+                <figcaption>MacBook Air M3 - Siêu mỏng, siêu mạnh</figcaption>
+            </figure>
+
+            <figure>
+                <img src="https://picsum.photos/id/2/400/300" 
+                     alt="Máy tính bảng iPad Pro màn hình OLED" 
+                     loading="lazy">
+                <figcaption>iPad Pro 2024 - Sáng tạo không giới hạn</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- 2. Video nhúng YouTube -->
+    <section>
+        <h2>Video Review thực tế</h2>
+        <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                title="YouTube video player" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+        </iframe>
+    </section>
+
+    <!-- 3. Thẻ video với poster và 2 source -->
+    <section>
+        <h2>Video giới thiệu tính năng</h2>
+        <video controls poster="https://picsum.photos/id/26/800/450">
+            <source src="movie.mp4" type="video/mp4">
+            <source src="movie.webm" type="video/webm">
+            Trình duyệt của bạn không hỗ trợ thẻ video.
+        </video>
+    </section>
+
+    <!-- 4. Thẻ audio (nhạc nền) -->
+    <section>
+        <h2>Nghe nhạc nền giới thiệu</h2>
+        <audio controls>
+            <source src="background-music.mp3" type="audio/mpeg">
+            Trình duyệt của bạn không hỗ trợ thẻ audio.
+        </audio>
+    </section>
+
+</body>
+</html>
