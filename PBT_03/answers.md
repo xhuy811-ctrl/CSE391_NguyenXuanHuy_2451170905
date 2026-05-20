@@ -134,6 +134,28 @@ Giải thích sự khác biệt: Với `content-box` , kích thước `width` ch
 # Câu B3:
 1 . Liệt kê 10 rules + specificity score 
 ```css
+* : 0,0,0
+
+p : 0,0,1
+
+.text : 0,1,0
+
+.text.highlight : 0,2,0
+
+[id="demo"].text : 0,2,0 (Viết sau nên thắng rule 4)
+
+#demo : 1,0,0
+
+p#demo : 1,0,1
+
+#demo.text : 1,1,0
+
+#demo.text.highlight : 1,2,0
+
+p#demo.text.highlight : 1,2,1
+```
+2. Element có màu đen. Giải thích: Rule p#demo.text.highlight có điểm Specificity cao nhất (1,2,1). Trong CSS, trình duyệt sẽ chọn quy tắc có độ ưu tiên cao nhất để áp dụng, các quy tắc thấp hơn sẽ bị ghi đè (overwritten).
+4. Kết quả không đổi,nếu các rule có điểm Specificity khác nhau. Rule có điểm cao hơn luôn thắng dù nó nằm ở đầu hay cuối file.
 
 
 ## PHẦN C — DEBUG & SUY LUẬN
@@ -147,3 +169,25 @@ Cách 1 : dùng `box-sizing`: `border-box`
 - Cách này thay đổi cách tính Box Model sao cho `width` bao gồm cả padding và border. Điều này giúp việc tính toán cực kỳ đơn giản. 
 - Logic: Giữ nguyên `width` sao cho 300 + 660 = 960.
 - CSS: Thêm box-sizing: border-box; cho các phần tử.
+Cách 2 : dùng không dùng border-box 
+- Tính toán lại width thủ công (Nếu vẫn dùng content-box)
+ Sidebar: width = 300 - 20 - 20 - 1 - 1 = 258px
+ Content: width = 660 - 30 - 30 - 1 - 1 = 598px
+Lúc này: 258 + 42 (phần dư) = 300px; 598 + 62 (phần dư) = 660px. Tổng = 960px .
+# Câu C2 : 
+1.
+- "Sản phẩm A" (h2): font-size = 20px, color = green
+- Giải thích : 
+Về font-size:
+    -Có selector nhắm trực tiếp: .card .title có độ đặc hiệu là (0, 2, 0).
+    -Do đó, nó thắng các giá trị được thừa kế từ .container (14px) hay body (16px).
+    -Kết quả: font-size = 20px.
+Về color:
+    -Có 2 selector nhắm vào màu sắc của nó: #featured .title có độ đặc hiệu là (1, 1, 0) và .highlight có độ đặc hiệu là (0, 1, 0).
+    -Thông thường, #featured .title sẽ thắng tuyệt đối vì có ID. Tuy nhiên, thuộc tính .highlight { color: green !important; } sử dụng cờ !important.
+    -Trong CSS Cascade, cờ !important có quyền năng tối cao, phá vỡ mọi quy tắc tính điểm độ đặc hiệu thông thường.
+    -Kết quả: color = green.
+2.
+- "Mô tả sản phẩm" (p trong card featured): color = blue
+3.
+- "Sản phẩm B" (h2): font-size = 20px, color = #333 (màu mặc định của body) hoặc chính xác hơn là phụ thuộc vào User Agent Stylesheet của trình duyệt nếu không bị ghi đè, tuy nhiên ở đây nó ăn theo cơ chế cascade trực tiếp là màu đen/xám tối từ body thông qua inheritance nếu không có selector chỉ định. Hãy xem chi tiết bên dưới.
