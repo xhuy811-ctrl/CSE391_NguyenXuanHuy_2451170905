@@ -1,0 +1,40 @@
+p { 
+    color: gray; 
+}
+
+div p { 
+    color: brown; 
+}
+
+
+.text { 
+    color: orange; 
+}
+
+p.highlight { 
+    color: magenta; 
+}
+
+.text.highlight { 
+    color: cyan; 
+}
+
+div .text.highlight { 
+    color: purple; 
+}
+
+#demo { 
+    color: blue; 
+}
+
+p#demo { 
+    color: yellow; 
+}
+
+.wrapper .highlight#demo { 
+    color: pink; 
+}
+
+#main-content #demo.text.highlight p { 
+    color: red; 
+}

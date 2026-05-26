@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model Lab & 3-Column Layout</title>
+    <link rel="stylesheet" href="boxmodel.css">
+</head>
+<body>
+
+    <h2 class="lab-title">Phần 1: Minh họa Content-box vs Border-box</h2>
+    <div class="demo-wrapper clearfix">
+        <div class="box box-content-box">
+            <h3>Hộp 1</h3>
+            <p><code>box-sizing: content-box</code></p>
+            <p>Khai báo width: 300px</p>
+        </div>
+        <div class="box box-border-box">
+            <h3>Hộp 2</h3>
+            <p><code>box-sizing: border-box</code></p>
+            <p>Khai báo width: 300px</p>
+        </div>
+    </div>
+
+    <h2 class="lab-title">Phần 2: Layout 3 Cột (Tổng 1000px)</h2> 
+    
+    Test case 1: Lỗi vỡ layout do KHÔNG dùng border-box
+    <h3>Trường hợp 1: Không dùng border-box (Bị vỡ layout, cột 3 bị đẩy xuống)</h3> 
+    <div class="container container-no-border-box clearfix">
+        <div class="col col-left">Cột Trái (250px)</div>
+        <div class="col col-center">Cột Giữa (500px)</div>
+        <div class="col col-right">Cột Phải (250px)</div>
+    </div>
+
+    <br><br> 
+
+    Test case 2: Layout hoàn hảo khi DÙNG border-box
+    <h3>Trường hợp 2: Có sử dụng border-box (Layout 3 cột chuẩn, vừa khít)</h3>
+    <div class="container container-with-border-box clearfix">
+        <div class="col col-left">Cột Trái (250px)</div>
+        <div class="col col-center">Cột Giữa (500px)</div>
+        <div class="col col-right">Cột Phải (250px)</div>
+    </div> 
+</body>
+</html>
