@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Positioning demo</title>
+  <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="logo">MyLogo</div>
+      <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page" role="main">
+    <aside class="sidebar" aria-label="Sidebar">
+      <div class="sidebar-inner">
+        <h3>Sidebar</h3>
+        <p>Quick links</p>
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+          <li><a href="#">Link 4</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="content">
+      <h1>Products</h1>
+      <p>Scroll to see header fixed and sidebar sticky (top: 80px).</p>
+
+      <div class="products">
+        <!-- cards -->
+        <article class="card">
+          <span class="badge">HOT</span>
+          <h4>Product 1</h4>
+          <p>Short description.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">HOT</span>
+          <h4>Product 2</h4>
+          <p>Short description.</p>
+        </article>
+
+        <article class="card">
+          <span class="badge">HOT</span>
+          <h4>Product 3</h4>
+          <p>Short description.</p>
+        </article>
+
+        <!-- duplicates to create scroll length -->
+        <article class="card"><span class="badge">HOT</span><h4>Product 4</h4><p>Short desc.</p></article>
+        <article class="card"><span class="badge">HOT</span><h4>Product 5</h4><p>Short desc.</p></article>
+        <article class="card"><span class="badge">HOT</span><h4>Product 6</h4><p>Short desc.</p></article>
+        <article class="card"><span class="badge">HOT</span><h4>Product 7</h4><p>Short desc.</p></article>
+        <article class="card"><span class="badge">HOT</span><h4>Product 8</h4><p>Short desc.</p></article>
+        <article class="card"><span class="badge">HOT</span><h4>Product 9</h4><p>Short desc.</p></article>
+        <article class="card"><span class="badge">HOT</span><h4>Product 10</h4><p>Short desc.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <button class="scroll-top" aria-label="Scroll to top">↑</button>
+
+  <script>
+    (function(){
+      var header = document.querySelector('.site-header');
+      var topBtn = document.querySelector('.scroll-top');
+      function onScroll(){
+        if(window.scrollY > 10) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+        if(window.scrollY > 200) topBtn.classList.add('show'); else topBtn.classList.remove('show');
+      }
+      window.addEventListener('scroll', onScroll, {passive:true});
+      onScroll();
+      topBtn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+    })();
+  </script>
+</body>
+</html>
