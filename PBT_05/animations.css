@@ -1,0 +1,51 @@
+/* Basic layout */
+* {box-sizing: border-box}
+body {font-family: system-ui, Arial, sans-serif; margin:0; padding:24px; background:#f7f7f8; color:#222}
+.site-header {text-align:center; margin-bottom:20px}
+.products {display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:20px; margin-bottom:40px}
+
+/* Card: transition + hover translateY + box-shadow */
+.card {background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 6px 18px rgba(16,24,40,0.06); transition: all 0.3s ease; transform: translateY(0);}
+.card:hover {transform: translateY(-8px); box-shadow:0 18px 40px rgba(16,24,40,0.12)}
+
+.img-wrap {overflow:hidden}
+.img-wrap img {display:block; width:100%; height:auto; transition: transform 0.3s ease}
+.img-wrap:hover img {transform: scale(1.1)}
+
+.card-body {padding:16px}
+.card-body h3 {margin:0 0 8px 0; font-size:1.05rem}
+.card-body p {margin:0 0 12px 0; color:#555}
+
+/* Button hover: background/color transition + scale */
+.btn-buy {display:inline-block; padding:10px 14px; border-radius:6px; border:0; background:#ff6b6b; color:#fff; cursor:pointer; transition: all 0.3s ease; font-weight:600}
+.btn-buy:hover {background:#fff; color:#ff6b6b; transform: scale(1.05); box-shadow: 0 6px 18px rgba(255,107,107,0.12)}
+
+/* Spinner using keyframes */
+.spinner-section {margin:40px 0; text-align:center}
+.spinner {width:48px; height:48px; margin:12px auto; border-radius:50%; border:6px solid rgba(0,0,0,0.08); border-top-color:#3498db; animation: spin 1s linear infinite}
+@keyframes spin {to {transform: rotate(360deg)}}
+
+/* Fade-in animation (keyframes) */
+@keyframes fadeIn {from {opacity:0; transform: translateY(20px)} to {opacity:1; transform: translateY(0)}}
+.fade-in {opacity:0; transform: translateY(20px)}
+
+/* Try to use CSS Scroll-linked Animations if supported */
+@supports (animation-timeline: works) {
+  @scroll-timeline fade-in-timeline {
+    source: auto;
+    start: 0%;
+    end: 100%;
+  }
+  .fade-in {animation: fadeIn 600ms ease both; animation-timeline: fade-in-timeline}
+}
+
+/* Fallback: class toggled by JS (or you can add .visible manually) */
+.fade-in.visible {animation: fadeIn 600ms ease both}
+
+/* small helpers */
+.long {height: 700px; padding-top: 20px}
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .card, .img-wrap img, .btn-buy, .spinner, .fade-in {transition:none; animation:none}
+}

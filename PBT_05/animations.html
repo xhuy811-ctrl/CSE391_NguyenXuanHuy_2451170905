@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Animations Demo</title>
+  <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>CSS Transitions & Animations — Demo</h1>
+  </header>
+
+  <main>
+    <section class="products">
+      <article class="card fade-in">
+        <div class="img-wrap">
+          <img src="https://via.placeholder.com/400x260.png?text=Product+1" alt="Product 1">
+        </div>
+        <div class="card-body">
+          <h3>Product 1</h3>
+          <p>Short description of product 1.</p>
+          <button class="btn-buy">Mua ngay</button>
+        </div>
+      </article>
+
+      <article class="card fade-in">
+        <div class="img-wrap">
+          <img src="https://via.placeholder.com/400x260.png?text=Product+2" alt="Product 2">
+        </div>
+        <div class="card-body">
+          <h3>Product 2</h3>
+          <p>Short description of product 2.</p>
+          <button class="btn-buy">Mua ngay</button>
+        </div>
+      </article>
+
+      <article class="card fade-in">
+        <div class="img-wrap">
+          <img src="https://via.placeholder.com/400x260.png?text=Product+3" alt="Product 3">
+        </div>
+        <div class="card-body">
+          <h3>Product 3</h3>
+          <p>Short description of product 3.</p>
+          <button class="btn-buy">Mua ngay</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="spinner-section">
+      <h2>Loading spinner</h2>
+      <div class="spinner" aria-hidden="true"></div>
+    </section>
+
+    <section class="long">
+      <h2>Scroll to reveal</h2>
+      <p class="fade-in">This paragraph will fade in when it appears in the viewport.</p>
+      <p class="fade-in">Another block that fades in with a small delay.</p>
+      <p class="fade-in">Keep scrolling to see the effect.</p>
+    </section>
+  </main>
+
+  <script>
+    // JS fallback: add .visible when elements enter viewport
+    // The visual effect is implemented in CSS; this only toggles the class.
+    const items = document.querySelectorAll('.fade-in');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.12});
+    items.forEach(i => obs.observe(i));
+  </script>
+</body>
+</html>

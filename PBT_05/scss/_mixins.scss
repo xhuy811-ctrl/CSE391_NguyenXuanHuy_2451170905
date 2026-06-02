@@ -1,0 +1,32 @@
+@charset "utf-8";
+@import 'variables';
+
+// Respond to breakpoint mixin
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: $breakpoint-tablet) { @content }
+  } @else if $breakpoint == desktop {
+    @media (min-width: $breakpoint-desktop) { @content }
+  } @else {
+    @media (min-width: $breakpoint) { @content }
+  }
+}
+
+// Center flex helper
+@mixin flex-center($dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: center;
+  align-items: center;
+}
+
+// Card shadow helper
+@mixin card-shadow($depth: 1) {
+  @if $depth == 1 {
+    box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  } @else if $depth == 2 {
+    box-shadow: 0 18px 40px rgba(16,24,40,0.12);
+  } @else {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  }
+}
