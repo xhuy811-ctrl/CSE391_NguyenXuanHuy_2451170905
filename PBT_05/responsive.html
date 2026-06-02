@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Product Page</title>
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>🛍️ TechStore</h1>
+            </div>
+            <button class="hamburger" id="hamburger">☰</button>
+            <nav class="nav" id="nav">
+                <ul class="nav-list">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- SIDEBAR (Filter) -->
+        <aside class="sidebar" id="sidebar">
+            <h3>Filter</h3>
+            <div class="filter-group">
+                <label>
+                    <input type="checkbox" checked> Laptops
+                </label>
+                <label>
+                    <input type="checkbox" checked> Phones
+                </label>
+                <label>
+                    <input type="checkbox"> Tablets
+                </label>
+            </div>
+            <h4>Price Range</h4>
+            <input type="range" min="100" max="5000" value="2500">
+            <p class="price-display">Max: $2500</p>
+        </aside>
+
+        <!-- PRODUCT GRID -->
+        <main class="product-section">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/007bff/ffffff?text=Laptop+Pro" alt="Laptop Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Laptop Pro 15"</h3>
+                        <p class="price">$1,299</p>
+                        <p class="description">Intel i7, 16GB RAM, 512GB SSD</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/28a745/ffffff?text=iPhone+14" alt="iPhone 14">
+                    </div>
+                    <div class="product-info">
+                        <h3>iPhone 14 Pro</h3>
+                        <p class="price">$999</p>
+                        <p class="description">6.1" display, A16 Bionic, 256GB</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/dc3545/ffffff?text=Tablet+Max" alt="Tablet Max">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tablet Max 12.9"</h3>
+                        <p class="price">$799</p>
+                        <p class="description">8GB RAM, 256GB Storage, Stylus</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/ffc107/ffffff?text=Smartwatch" alt="Smartwatch">
+                    </div>
+                    <div class="product-info">
+                        <h3>SmartWatch Elite</h3>
+                        <p class="price">$399</p>
+                        <p class="description">Always-on display, 7-day battery</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/17a2b8/ffffff?text=Headphones" alt="Headphones">
+                    </div>
+                    <div class="product-info">
+                        <h3>Wireless Headphones</h3>
+                        <p class="price">$299</p>
+                        <p class="description">ANC, 30h battery, Bluetooth 5.0</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/6f42c1/ffffff?text=Camera+4K" alt="Camera 4K">
+                    </div>
+                    <div class="product-info">
+                        <h3>4K Action Camera</h3>
+                        <p class="price">$449</p>
+                        <p class="description">60fps, Waterproof, Stabilization</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/e83e8c/ffffff?text=Speaker+Pro" alt="Speaker Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Portable Speaker Pro</h3>
+                        <p class="price">$249</p>
+                        <p class="description">360° sound, IPX7, 12h battery</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/fd7e14/ffffff?text=Monitor+32" alt="Monitor 32">
+                    </div>
+                    <div class="product-info">
+                        <h3>32" 4K Monitor</h3>
+                        <p class="price">$599</p>
+                        <p class="description">144Hz, HDR, USB-C</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/20c997/ffffff?text=Keyboard" alt="Keyboard">
+                    </div>
+                    <div class="product-info">
+                        <h3>Mechanical Keyboard</h3>
+                        <p class="price">$179</p>
+                        <p class="description">RGB lighting, Wireless, Hot-swap</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/250x200/343a40/ffffff?text=Mouse+Pro" alt="Mouse Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Gaming Mouse Pro</h3>
+                        <p class="price">$89</p>
+                        <p class="description">16000 DPI, 8 buttons, Wireless</p>
+                        <button class="btn-add">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ADS BAR (Desktop only) -->
+        <aside class="ads-bar">
+            <h3>Special Deals</h3>
+            <div class="ad-item">
+                <img src="https://via.placeholder.com/180x200/ff6b6b/ffffff?text=Flash+Sale" alt="Flash Sale">
+                <p>50% OFF Today!</p>
+            </div>
+            <div class="ad-item">
+                <img src="https://via.placeholder.com/180x200/4ecdc4/ffffff?text=Free+Ship" alt="Free Shipping">
+                <p>Free Shipping!</p>
+            </div>
+        </aside>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 TechStore. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#privacy">Privacy</a></li>
+                <li><a href="#terms">Terms</a></li>
+                <li><a href="#sitemap">Sitemap</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle hamburger menu
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+
+        // Price range slider
+        const priceSlider = document.querySelector('input[type="range"]');
+        const priceDisplay = document.querySelector('.price-display');
+        priceSlider.addEventListener('input', () => {
+            priceDisplay.textContent = `Max: $${priceSlider.value}`;
+        });
+    </script>
+</body>
+</html>
