@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Form Validator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Đăng ký</h1>
+    <form id="regForm" novalidate>
+      <label>
+        Tên
+        <div class="field-row">
+          <input id="name" name="name" type="text" placeholder="Họ và tên">
+          <span class="status" id="nameStatus"></span>
+        </div>
+        <small class="error" id="nameError"></small>
+      </label>
+
+      <label>
+        Email
+        <div class="field-row">
+          <input id="email" name="email" type="email" placeholder="example@mail.com">
+          <span class="status" id="emailStatus"></span>
+        </div>
+        <small class="error" id="emailError"></small>
+      </label>
+
+      <label>
+        Mật khẩu
+        <div class="field-row">
+          <input id="password" name="password" type="password" placeholder="Mật khẩu">
+          <span class="status" id="passwordStatus"></span>
+        </div>
+        <div class="strength" id="strength">
+          <div class="bar" id="strengthBar"></div>
+          <span id="strengthText"></span>
+        </div>
+      </label>
+
+      <label>
+        Xác nhận mật khẩu
+        <div class="field-row">
+          <input id="confirm" name="confirm" type="password" placeholder="Nhập lại mật khẩu">
+          <span class="status" id="confirmStatus"></span>
+        </div>
+        <small class="error" id="confirmError"></small>
+      </label>
+
+      <label>
+        Điện thoại
+        <div class="field-row">
+          <input id="phone" name="phone" type="text" placeholder="0901-234-567" maxlength="13">
+          <span class="status" id="phoneStatus"></span>
+        </div>
+        <small class="error" id="phoneError"></small>
+      </label>
+
+      <button id="submitBtn" type="submit" disabled>Đăng ký</button>
+    </form>
+  </main>
+
+  <div id="modal" class="modal" aria-hidden="true"></div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

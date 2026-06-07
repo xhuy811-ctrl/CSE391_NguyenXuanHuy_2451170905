@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Keyboard Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <h1>Keyboard Gallery</h1>
+      <div class="controls">
+        <button id="openPalette" class="btn" aria-label="Open command palette (Ctrl+K)">Ctrl+K</button>
+        <button id="toggleSlideshow" class="btn" aria-label="Toggle slideshow">Play</button>
+      </div>
+    </header>
+
+    <main>
+      <div id="gallery" class="gallery" role="list" aria-label="Image gallery"></div>
+    </main>
+
+    <div id="modal" class="modal" aria-hidden="true">
+      <button id="closeModal" class="close" aria-label="Close (Esc)">✕</button>
+      <button id="prev" class="nav" aria-label="Previous (Left)">◀</button>
+      <img id="modalImg" src="" alt=""> 
+      <button id="next" class="nav" aria-label="Next (Right)">▶</button>
+    </div>
+
+    <div id="palette" class="palette" aria-hidden="true">
+      <input id="paletteInput" placeholder="Type a command..." aria-label="Command palette input">
+      <ul id="paletteList" role="listbox" aria-label="Commands"></ul>
+    </div>
+
+    <footer>
+      <p>Use ← →, numbers 1-9, Space to play/pause, Escape to close modal, Ctrl+K to open command palette.</p>
+    </footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

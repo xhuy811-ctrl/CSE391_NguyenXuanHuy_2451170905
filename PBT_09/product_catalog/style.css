@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+:root{--bg:#f8fafc;--card:#fff;--muted:#6b7280;--accent:#0ea5e9;--dark-bg:#0f1724;--dark-card:#0b1220}
+*{box-sizing:border-box}body{font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif;margin:0;background:var(--bg);color:#0f1724}
+.app{max-width:1100px;margin:28px auto;padding:20px}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.controls{display:flex;gap:8px;align-items:center}
+.search{padding:8px 12px;border-radius:8px;border:1px solid #e6eef5;width:280px}
+.select, .btn{padding:8px 10px;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.btn{background:var(--accent);color:#fff}
+.cart{position:relative}
+.badge{position:absolute;top:-6px;right:-6px;background:#ef4444;color:#fff;border-radius:50%;min-width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.categories{margin:12px 0;display:flex;gap:8px;flex-wrap:wrap}
+.cat-btn{padding:6px 10px;border:1px solid transparent;border-radius:8px;cursor:pointer;background:transparent}
+.cat-btn.active{background:#eef2ff;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:14px}
+.card{background:var(--card);border-radius:10px;padding:12px;border:1px solid #eef2f6;cursor:pointer;display:flex;flex-direction:column;gap:8px}
+.card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+.card .meta{display:flex;justify-content:space-between;align-items:center}
+.card .name{font-weight:600}
+.card .price{color:var(--accent);font-weight:600}
+.card .actions{display:flex;gap:8px;align-items:center}
+.modal-overlay{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:flex;align-items:center;justify-content:center}
+.modal{background:var(--card);padding:18px;border-radius:10px;max-width:720px;width:95%}
+.dark-mode{background:var(--dark-bg);color:#e6eef5}
+.dark-mode .card{background:var(--dark-card);border-color:#0b2438}
+.dark-mode .modal{background:var(--dark-card)}
+.footer{margin-top:18px;color:var(--muted);font-size:13px}
+@media (max-width:520px){.header{flex-direction:column;align-items:flex-start}.search{width:100%}}
