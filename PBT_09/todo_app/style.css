@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root{
+  --bg:#f6f8fa;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#6366f1;
+  --danger:#ef4444;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,sans-serif; background:var(--bg); color:#111827;
+  display:flex; align-items:center; justify-content:center; padding:40px;
+}
+.container{
+  width:100%; max-width:620px; background:var(--card); padding:28px; border-radius:12px; box-shadow:0 6px 24px rgba(16,24,40,0.08);
+}
+h1{margin:0 0 18px 0; font-weight:600; font-size:24px}
+.controls{display:flex; flex-direction:column; gap:12px}
+#todoForm{display:flex; gap:8px}
+#todoInput{flex:1; padding:10px 12px; border:1px solid #e6e9ee; border-radius:8px; font-size:15px}
+#addBtn{padding:10px 14px; background:var(--accent); color:#fff; border:none; border-radius:8px; cursor:pointer}
+#addBtn:hover{opacity:0.95}
+.filters{display:flex; gap:8px}
+.filter-btn{background:transparent; border:1px solid transparent; padding:6px 10px; border-radius:8px; cursor:pointer; color:var(--muted)}
+.filter-btn.active{background:#eef2ff; color:var(--accent); border-color:rgba(99,102,241,0.12)}
+.actions{display:flex; justify-content:space-between; align-items:center}
+#clearCompleted{background:transparent; border:none; color:var(--danger); cursor:pointer}
+.todo-list{list-style:none; padding:0; margin:14px 0 0 0}
+.todo-item{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px; border-radius:8px; border:1px solid #f1f3f5; margin-bottom:8px; transition:background .18s,transform .18s}
+.todo-item .left{display:flex; align-items:center; gap:12px}
+.todo-item .text{cursor:pointer}
+.todo-item .text.completed{text-decoration:line-through; color:var(--muted); opacity:0.8}
+.todo-item .btns{display:flex; gap:8px}
+.icon-btn{background:transparent; border:none; cursor:pointer; padding:6px; border-radius:6px}
+.icon-btn:hover{background:#f3f4f6}
+.edit-input{flex:1; padding:8px; border:1px dashed #d1d5db; border-radius:6px}
+
+@media (max-width:520px){
+  .container{padding:18px}
+}

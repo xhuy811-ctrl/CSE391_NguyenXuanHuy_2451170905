@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Todo App</h1>
+
+    <section class="controls">
+      <form id="todoForm">
+        <input id="todoInput" placeholder="What needs to be done?" autocomplete="off">
+        <button id="addBtn" type="submit">Add</button>
+      </form>
+
+      <div class="filters">
+        <button data-filter="all" class="filter-btn active">All</button>
+        <button data-filter="active" class="filter-btn">Active</button>
+        <button data-filter="completed" class="filter-btn">Completed</button>
+      </div>
+
+      <div class="actions">
+        <span id="count">0 items left</span>
+        <button id="clearCompleted">Clear completed</button>
+      </div>
+    </section>
+
+    <ul id="todoList" class="todo-list" aria-live="polite"></ul>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
