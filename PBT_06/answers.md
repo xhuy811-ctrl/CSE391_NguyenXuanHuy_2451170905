@@ -54,7 +54,7 @@ Ghi chú: các lớp có dạng `{m|p}{t|b|s|e|x|y|-}{0|1|2|3|4|5|auto}` — m/p
 3. **Không nên dùng:** Website có thiết kế độc bản, sáng tạo cao hoặc yêu cầu dung lượng file CSS phải cực nhẹ.
 
 ## 🌊 TRACK B — TAILWINDCSS
-
+### PHẦN A — ĐỌC HIỂU (20 điểm)
 #### Câu A1 (10đ) — Utility Classes
 
 Ví dụ HTML (Tailwind classes):
@@ -121,3 +121,41 @@ Ghi chú: một số giá trị màu/radius/spacing là giá trị tham chiếu 
 - `hidden md:flex` (tương đương `d-none d-md-flex` của Bootstrap)
 
 Ghi chú: breakpoints mặc định Tailwind: `sm`=640px, `md`=768px, `lg`=1024px, `xl`=1280px, `2xl`=1536px — có thể cấu hình lại trong `tailwind.config.js`.
+
+### PHẦN C — PHÂN TÍCH (Tailwind)
+
+#### Câu C1 (10đ) — Tailwind vs CSS thuần
+
+Lấy ví dụ một `product card` mà ta từng viết bằng CSS thuần (HTML minimal + external `styles.css`) và so sánh với phiên bản Tailwind (all-utility classes in HTML):
+
+- HTML file size:
+  - CSS thuần: HTML ngắn, semantic (ví dụ ~1–2 KB) + `styles.css` (tùy chi tiết, có thể 5–30 KB).
+  - Tailwind HTML: HTML lớn hơn (nhiều class lặp), có thể tăng 30–200% kích thước HTML ngay lập tức (thêm vài KB), nhưng CSS cuối cùng sau Purge/JIT chỉ chứa utilities dùng thật sự → CSS bundle thường nhỏ hơn Bootstrap và thường nhỏ hơn hoặc tương đương với CSS thuần tổng hợp khi dự án lớn.
+
+- Maintainability:
+  - CSS thuần: dễ đọc nếu class semantic (`.product-card`), dễ tách module; nhưng khi project lớn cần quy ước đặt tên (BEM) để tránh va chạm.
+  - Tailwind: nhanh để iterate (không phải mở file CSS), nhưng HTML trông "bê tông" vì nhiều lớp utility — khó đọc ở cái nhìn đầu cho người mới. Dễ sửa nhanh các spacing/color bằng class, và khi dùng `@apply`/component extraction có thể cải thiện readability.
+
+- Reusability:
+  - CSS thuần: tái sử dụng bằng class/component (ví dụ `.card`) hoặc tạo component style trong CSS; dễ tái dùng qua HTML semantic classes.
+  - Tailwind: tái sử dụng bằng cách tạo lớp tùy chỉnh với `@apply` trong một file SCSS/Tailwind (tạo `@layer components { .btn-primary { @apply bg-indigo-600 text-white px-4 py-2 rounded } }`) hoặc tạo React/Vue components chứa set class. `@apply` cho phép giữ lợi ích utility mà vẫn có tên class semantic.
+
+Tóm tắt: Tailwind tăng kích thước HTML nhưng giảm CSS cuối cùng nhờ Purge/JIT; phù hợp để phát triển nhanh và lặp design, còn CSS thuần có lợi về readability ban đầu và khi cần markup rõ ràng cho designers.
+
+#### Câu C2 (10đ) — Performance
+
+1) Tại sao file CSS cuối cùng của Tailwind thường NHỎ HƠN Bootstrap?
+
+- Tailwind được thiết kế để bị "purge" (loại bỏ) các utility không dùng: chỉ CSS cho các class xuất hiện trong mã nguồn sẽ được giữ lại. Với JIT, CSS còn được sinh trực tiếp theo lớp dùng, do đó output chỉ chứa rules cần thiết. Bootstrap phân phối toàn bộ tập component/utility của nó (nhiều rules không dùng) nên file CSS gốc lớn hơn.
+
+2) Tailwind PurgeCSS / JIT — nó loại bỏ gì?
+
+- Purge (pre-JIT) quét HTML/JS/模板 để tìm class sử dụng và loại bỏ các selector không dùng khỏi CSS build.
+- JIT (Just-In-Time) sinh các utilities on-demand khi gặp class trong source, không cần generate toàn bộ thư viện trước — kết quả là tập CSS nhỏ, chỉ chứa các utilities/variants thực sự dùng (bao gồm responsive/state variants).
+
+3) Khi nào KHÔNG nên dùng TailwindCSS? (2 tình huống cụ thể)
+
+- Trường hợp 1 — Landing page cực kỳ nhỏ, không có build step, yêu cầu CSS tối giản (ví dụ email template hoặc single-file static page cần <5KB CSS): overhead classes và toolchain Tailwind không phù hợp.
+- Trường hợp 2 — When a team requires strictly semantic class names for non-developer designers or for very opinionated design systems where CSS must be centrally authored and audited (e.g., enterprise product with strict theming rules and non-dev designers editing HTML). Tailwind's utility-first HTML can be noisy and make review harder for those stakeholders.
+
+Ghi chú ngắn: chọn công cụ dựa trên quy mô dự án, workflow team, và yêu cầu bundle/critical CSS.
