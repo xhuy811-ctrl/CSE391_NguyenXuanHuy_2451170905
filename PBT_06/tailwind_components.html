@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="vi" class="antialiased">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailwind Components</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config = { darkMode: 'class' }</script>
+  <style>/* no custom CSS allowed per requirements */</style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+
+  <div class="max-w-7xl mx-auto p-6 space-y-10">
+    <header class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold">Tailwind Components</h1>
+      <div class="flex items-center gap-3">
+        <button onclick="document.documentElement.classList.toggle('dark')" class="px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded">Toggle Dark</button>
+      </div>
+    </header>
+
+    <!-- Buttons -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Buttons</h2>
+      <div class="space-y-4">
+        <div class="flex flex-wrap gap-3 items-center">
+          <button class="bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-medium py-2 px-4 rounded">Primary</button>
+          <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded dark:bg-gray-700 dark:hover:bg-gray-600">Secondary</button>
+          <button class="border border-indigo-600 text-indigo-600 hover:bg-indigo-50 px-4 py-2 rounded">Outline</button>
+          <button disabled class="bg-gray-300 text-gray-500 px-4 py-2 rounded cursor-not-allowed" aria-disabled="true">Disabled</button>
+          <button id="loadBtn" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded flex items-center gap-2" onclick="toggleLoading(this)"><svg id="spinner" class="animate-spin h-4 w-4 hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/></svg><span>Loading</span></button>
+        </div>
+
+        <div class="flex flex-wrap gap-3 items-center">
+          <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-1 px-3 rounded text-sm">Sm</button>
+          <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded">Md</button>
+          <button class="bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 px-6 rounded text-lg">Lg</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cards -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Cards</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Product card -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+          <img src="https://via.placeholder.com/800x400" alt="product" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg dark:text-gray-100">Product Card</h3>
+            <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Short product description with features and benefits.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">$49</span>
+              <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Buy</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Profile card -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow p-6 text-center">
+          <img src="https://via.placeholder.com/120" alt="avatar" class="mx-auto w-24 h-24 rounded-full object-cover">
+          <h3 class="mt-4 font-semibold dark:text-gray-100">Nguyễn Văn A</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">Frontend Developer</p>
+          <div class="mt-4 flex justify-center gap-3">
+            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Follow</button>
+            <button class="border border-gray-300 hover:bg-gray-50 px-3 py-1 rounded">Message</button>
+          </div>
+        </div>
+
+        <!-- Pricing card -->
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow p-6">
+          <div class="flex items-baseline gap-2">
+            <span class="text-3xl font-extrabold">$19</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300">/mo</span>
+          </div>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">Basic plan for personal projects.</p>
+          <ul class="mt-4 space-y-2 text-sm">
+            <li>✓ Feature A</li>
+            <li>✓ Feature B</li>
+            <li>✓ Feature C</li>
+          </ul>
+          <button class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded">Choose Plan</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Forms -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Forms</h2>
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Full name</label>
+          <input class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700" placeholder="Nguyễn Văn A">
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Role</label>
+          <select class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700">
+            <option>Frontend Developer</option>
+            <option>Designer</option>
+            <option>Manager</option>
+          </select>
+        </div>
+        <div class="md:col-span-2">
+          <label class="block text-sm font-medium mb-1">Message</label>
+          <textarea class="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-800 dark:border-gray-700" rows="4"></textarea>
+        </div>
+        <div class="md:col-span-2">
+          <fieldset>
+            <legend class="text-sm font-medium mb-2">Interests</legend>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-indigo-500"> Design</label>
+              <label class="flex items-center gap-2"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-indigo-500"> Development</label>
+              <label class="flex items-center gap-2"><input type="checkbox" class="h-4 w-4 rounded border-gray-300 focus:ring-2 focus:ring-indigo-500"> Marketing</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="md:col-span-2">
+          <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded">Submit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Alerts -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Alerts</h2>
+      <div class="space-y-3">
+        <div class="p-4 rounded bg-green-50 dark:bg-green-900 border border-green-200 dark:border-green-800 flex justify-between items-start">
+          <div>
+            <strong class="block text-green-800 dark:text-green-200">Success</strong>
+            <p class="text-sm text-green-700 dark:text-green-100">Your operation completed successfully.</p>
+          </div>
+          <button onclick="this.closest('div').remove()" class="text-green-600 hover:text-green-800">✕</button>
+        </div>
+
+        <div class="p-4 rounded bg-red-50 dark:bg-red-900 border border-red-200 dark:border-red-800 flex justify-between items-start">
+          <div>
+            <strong class="block text-red-800 dark:text-red-200">Error</strong>
+            <p class="text-sm text-red-700 dark:text-red-100">There was an error processing your request.</p>
+          </div>
+          <button onclick="this.closest('div').remove()" class="text-red-600 hover:text-red-800">✕</button>
+        </div>
+
+        <div class="p-4 rounded bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-800 flex justify-between items-start">
+          <div>
+            <strong class="block text-yellow-800 dark:text-yellow-200">Warning</strong>
+            <p class="text-sm text-yellow-700 dark:text-yellow-100">Please check your input.</p>
+          </div>
+          <button onclick="this.closest('div').remove()" class="text-yellow-600 hover:text-yellow-800">✕</button>
+        </div>
+
+        <div class="p-4 rounded bg-blue-50 dark:bg-blue-900 border border-blue-200 dark:border-blue-800 flex justify-between items-start">
+          <div>
+            <strong class="block text-blue-800 dark:text-blue-200">Info</strong>
+            <p class="text-sm text-blue-700 dark:text-blue-100">Additional information for the user.</p>
+          </div>
+          <button onclick="this.closest('div').remove()" class="text-blue-600 hover:text-blue-800">✕</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation: horizontal + vertical -->
+    <section>
+      <h2 class="text-xl font-semibold mb-4">Navigation</h2>
+      <div class="space-y-6">
+        <!-- Horizontal navbar -->
+        <nav class="bg-white dark:bg-gray-800 rounded shadow p-3 flex items-center justify-between">
+          <div class="flex items-center gap-4">
+            <div class="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center">T</div>
+            <div class="font-semibold">TailwindCo</div>
+            <div class="hidden sm:flex gap-3 ml-6">
+              <a class="text-gray-600 hover:text-indigo-600 dark:text-gray-300" href="#">Home</a>
+              <a class="text-gray-600 hover:text-indigo-600 dark:text-gray-300" href="#">Docs</a>
+              <a class="text-gray-600 hover:text-indigo-600 dark:text-gray-300" href="#">Blog</a>
+            </div>
+          </div>
+          <div>
+            <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Sign in</button>
+          </div>
+        </nav>
+
+        <!-- Vertical sidebar (collapsible on small screens) -->
+        <div class="flex">
+          <aside id="sidebar" class="w-64 bg-white dark:bg-gray-800 rounded shadow p-4 hidden lg:block">
+            <ul class="space-y-2">
+              <li><a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Dashboard</a></li>
+              <li><a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Projects</a></li>
+              <li><a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Team</a></li>
+              <li><a class="block px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-700" href="#">Settings</a></li>
+            </ul>
+          </aside>
+          <div class="flex-1 p-4 bg-white dark:bg-gray-800 rounded shadow">
+            <p class="text-sm">Main content area next to the vertical sidebar. Resize to see sidebar hide on smaller screens.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleLoading(btn){
+      const spinner = btn.querySelector('#spinner');
+      spinner.classList.toggle('hidden');
+      btn.disabled = true; setTimeout(()=>{ spinner.classList.add('hidden'); btn.disabled=false; }, 1200);
+    }
+  </script>
+
+</body>
+</html>

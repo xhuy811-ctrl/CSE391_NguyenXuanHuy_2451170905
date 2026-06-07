@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="vi" class="antialiased">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tailwind Landing</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Enable dark mode class strategy
+    tailwind.config = { darkMode: 'class' }
+    function toggleDark(){ document.documentElement.classList.toggle('dark') }
+    function toggleMobileMenu(){ document.getElementById('mobile-menu').classList.toggle('hidden') }
+  </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100">
+
+  <!-- Navbar -->
+  <header class="w-full bg-white dark:bg-gray-800 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4">
+        <a href="#" class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-white font-bold">T</div>
+          <span class="font-semibold text-lg dark:text-gray-100">TailwindCo</span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="#features" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Features</a>
+          <a href="#products" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Products</a>
+          <a href="#pricing" class="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400">Pricing</a>
+          <button onclick="toggleDark()" class="ml-2 px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded text-sm">Toggle Dark</button>
+        </nav>
+
+        <div class="flex items-center md:hidden">
+          <button onclick="toggleDark()" class="mr-2 px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded text-sm">☾</button>
+          <button aria-label="menu" onclick="toggleMobileMenu()" class="p-2 rounded-md bg-gray-100 dark:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-700 dark:text-gray-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-700">
+      <div class="px-4 py-3 space-y-2">
+        <a href="#features" class="block text-gray-700 dark:text-gray-200">Features</a>
+        <a href="#products" class="block text-gray-700 dark:text-gray-200">Products</a>
+        <a href="#pricing" class="block text-gray-700 dark:text-gray-200">Pricing</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="w-full bg-gradient-to-r from-indigo-500 to-blue-500 dark:from-gray-800 dark:to-indigo-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="py-24 text-center text-white">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold drop-shadow-md">Build beautiful UIs faster</h1>
+        <p class="mt-4 text-lg sm:text-xl max-w-2xl mx-auto opacity-90">Utilities-first styling with Tailwind lets you iterate quickly without leaving your HTML.</p>
+        <div class="mt-8 flex justify-center gap-4">
+          <a href="#products" class="inline-block bg-white text-indigo-600 font-semibold py-3 px-6 rounded shadow hover:shadow-lg transition">Get Started</a>
+          <a href="#features" class="inline-block bg-white/20 text-white border border-white/30 py-3 px-6 rounded hover:bg-white/30 transition">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product grid -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-12">
+    <section id="products" class="bg-transparent">
+      <h2 class="sr-only">Products</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Card 1 -->
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+          <img src="https://via.placeholder.com/600x400" alt="Product 1" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg dark:text-gray-100">Product One</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">A short description of product one. Lightweight and powerful.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">$29</span>
+              <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+          <img src="https://via.placeholder.com/600x400" alt="Product 2" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg dark:text-gray-100">Product Two</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">A short description of product two. Great for teams.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">$49</span>
+              <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+          <img src="https://via.placeholder.com/600x400" alt="Product 3" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg dark:text-gray-100">Product Three</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">A short description of product three. Designed for speed.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">$19</span>
+              <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Buy</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden">
+          <img src="https://via.placeholder.com/600x400" alt="Product 4" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="font-semibold text-lg dark:text-gray-100">Product Four</h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">A short description of product four. Packed with features.</p>
+            <div class="mt-4 flex items-center justify-between">
+              <span class="font-bold text-indigo-600 dark:text-indigo-400">$99</span>
+              <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1 rounded">Buy</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div>
+          <h4 class="font-semibold mb-3 text-gray-900 dark:text-gray-100">TailwindCo</h4>
+          <p class="text-sm">Helping teams ship beautiful UI, faster.</p>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-3">Product</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Features</a></li>
+            <li><a href="#" class="hover:underline">Integrations</a></li>
+            <li><a href="#" class="hover:underline">Pricing</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-3">Resources</h5>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Docs</a></li>
+            <li><a href="#" class="hover:underline">Blog</a></li>
+            <li><a href="#" class="hover:underline">Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="font-semibold mb-3">Contact</h5>
+          <p class="text-sm">hello@tailwindco.example</p>
+          <div class="mt-4 flex space-x-3">
+            <a href="#" class="text-sm px-3 py-1 bg-white dark:bg-gray-800 rounded">Twitter</a>
+            <a href="#" class="text-sm px-3 py-1 bg-white dark:bg-gray-800 rounded">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 text-center text-xs text-gray-500 dark:text-gray-400">© 2026 TailwindCo. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
