@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Infinite Scroll Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Gallery — Infinite Scroll</h1>
+    <p class="lead">Ảnh tải từ picsum.photos. Scroll xuống để load thêm.</p>
+
+    <div id="gallery" class="grid"></div>
+
+    <div id="loadingIndicator" class="loading hidden">Đang tải thêm...</div>
+    <div id="load-trigger"></div>
+  </main>
+
+  <div id="lightbox" class="lightbox hidden">
+    <div class="overlay"></div>
+    <img id="lightboxImg" alt="" />
+    <button id="lightboxClose" class="close">×</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

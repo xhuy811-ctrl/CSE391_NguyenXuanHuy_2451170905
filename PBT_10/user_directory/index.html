@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Directory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1>Users Directory</h1>
+
+    <div class="topbar">
+      <input id="searchInput" placeholder="Tìm theo name hoặc email" />
+      <button id="newBtn">Thêm user</button>
+    </div>
+
+    <section id="formSection" class="panel hidden">
+      <h2 id="formTitle">Thêm user</h2>
+      <form id="userForm">
+        <input name="id" type="hidden" />
+        <label>Name <input name="name" required /></label>
+        <label>Username <input name="username" /></label>
+        <label>Email <input name="email" type="email" required /></label>
+        <label>Phone <input name="phone" /></label>
+        <div class="formActions">
+          <button type="submit">Lưu</button>
+          <button type="button" id="cancelBtn">Hủy</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="listSection">
+      <div id="loader" class="skeleton-grid"></div>
+      <div id="usersContainer" class="grid"></div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="api.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

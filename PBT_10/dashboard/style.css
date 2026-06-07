@@ -1,0 +1,23 @@
+:root{--bg:#f5f7fb;--card:#fff;--accent:#0b76d1;--muted:#666}
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);margin:0;padding:20px}
+.container{max-width:1100px;margin:0 auto;background:var(--card);padding:18px;border-radius:10px;box-shadow:0 8px 24px rgba(20,30,50,0.06)}
+.header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.controls{display:flex;align-items:center;gap:12px}
+#refreshAll{padding:8px 12px;background:var(--accent);color:#fff;border:none;border-radius:6px}
+.status{padding:6px 10px;border-radius:6px;background:#eef;color:var(--muted)}
+.load-time{font-size:13px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+.card{background:#fff;padding:12px;border-radius:8px;border:1px solid #eef}
+.card h2{margin:0 0 8px;font-size:16px}
+.widget-body{min-height:80px}
+.spinner{border:4px solid rgba(0,0,0,0.06);border-top-color:var(--accent);border-radius:50%;width:36px;height:36px;animation:spin 1s linear infinite}
+.spinner.small{width:20px;height:20px;border-width:3px}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.item-list{display:flex;flex-direction:column;gap:6px}
+.user-item{padding:8px;border-radius:6px;background:#f8fbff;border:1px solid #eaf4ff}
+.thumbs{display:flex;gap:6px;flex-wrap:wrap}
+.thumbs img{width:80px;height:60px;object-fit:cover;border-radius:6px}
+
+.hidden{display:none}
